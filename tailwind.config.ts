@@ -8,11 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      fontFamily: {
+        'sans': ['ui-sans-serif', 'system-ui', 'Roboto', 'Arial'],
+        'serif': ['ui-serif', 'Georgia', 'serif', 'Times'],
+        'mono': ['Menlo', 'SFMono-Regular', 'Monaco', 'Consolas'],
+        'mono1': ['Courier New', 'SFMono-Regular', 'Menlo', 'Consolas']
+      }
     },
   },
   plugins: [],
