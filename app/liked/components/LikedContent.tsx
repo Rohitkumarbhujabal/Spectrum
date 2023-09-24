@@ -2,6 +2,7 @@
 
 import LikeButton from "@/components/LikeButton";
 import MediaItem from "@/components/MediaItem";
+import useAuthModal from "@/hooks/useAuthModal";
 import useOnPlay from "@/hooks/useOnPlay";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
@@ -19,10 +20,12 @@ const LikedContent: React.FC<LikedContentProps> = ({
     const router = useRouter();
     const { isLoading, user } = useUser();
     const onPlay = useOnPlay(songs);
+    const authModal = useAuthModal();
 
     useEffect(() => {
         if (!isLoading && !user) {
-          router.replace('/');
+            router.replace("/site");
+            return authModal.onOpen();
         }
     }, [isLoading, user, router]);
 
@@ -43,13 +46,13 @@ const LikedContent: React.FC<LikedContentProps> = ({
     }
 
     return ( 
-        <div className="flex flex-col gap-y-2 w-full p-6">
+        <div className="flex flex-col gap-y-2 w-full p-6 font-mono">
             {songs.map((song: any) => (
                 <div 
                     key={song.id} 
-                    className="flex items-center gap-x-4 w-full"
+                    className="flex items-center gap-x-4 w-full font-mono"
                 >
-                    <div className="flex-1">
+                    <div className="flex-1 font-mono">
                         <MediaItem onClick={(id: string) => onPlay(id)} data={song} />
                     </div>
                     <LikeButton songId={song.id} />

@@ -32,7 +32,8 @@ const PageContent:React.FC<PageContentProps> = ({
             xl:grid-cols-5 
             2xl:grid-cols-8 
             gap-4 
-            mt-4"
+            mt-4
+            font-mono"
         >
             {songs.map((item) => (
                 <SongItem 

@@ -16,6 +16,7 @@ const Liked = async () => {
         rounded-lg 
         h-full 
         w-full 
+        font-mono
         overflow-hidden 
         overflow-y-auto"
     >
